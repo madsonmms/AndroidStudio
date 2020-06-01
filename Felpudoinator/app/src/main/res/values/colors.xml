@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#FFF</color>
+    <color name="colorFundoIcone">#08F111</color>
+    <color name="colorFundoDescricao">#7887DD</color>
+    <color name="colorFundoTitulo">#03DAC5</color>
+</resources>

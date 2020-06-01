@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="64dp"
+    android:paddingRight="64dp"
+    android:paddingTop="16dp"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context="com.example.projeto.EditarLista">
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal"
+        android:text="Atualizar Lista"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/labelTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Titulo"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <EditText
+        android:id="@+id/campoTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/labelConteudo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Lista"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <EditText
+        android:id="@+id/campoConteudo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:layout_weight="0.75"
+        android:gravity="top"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/botaoGravar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="2.5dp"
+            android:layout_weight="1"
+            android:background="#E385FF00"
+            android:onClick="atualizarLista"
+            android:src="@drawable/round_save_white_48dp"
+            android:tint="#5BA802" />
+
+        <ImageButton
+            android:id="@+id/botaoExcluir"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="2.5dp"
+            android:layout_weight="1"
+            android:background="#C7FBFB31"
+            android:onClick="excluirLista"
+            android:src="@drawable/round_delete_white_48dp"
+            android:tint="#F3BC17" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/botaoCancelar"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_marginTop="5dp"
+        android:background="#F7F44336"
+        android:onClick="voltar"
+        android:src="@drawable/round_close_white_48dp"
+        android:tint="#A32B22" />
+
+</LinearLayout>
