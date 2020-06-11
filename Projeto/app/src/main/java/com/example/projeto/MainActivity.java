@@ -19,6 +19,7 @@ public class MainActivity extends Activity implements
         AdapterView.OnItemClickListener,
         View.OnClickListener {
 
+    //Instanciando ViewHolder
     private ViewHolder mViewHolder = new ViewHolder();
 
     @Override
@@ -29,6 +30,7 @@ public class MainActivity extends Activity implements
         String[] nomeCampos = new String[]{"_id", "titulo"};
         BancoDeDados bancoDeDados = new BancoDeDados(getBaseContext());
 
+        //Atribuindo os IDs as variáveis do ViewHolder
         this.mViewHolder.cursor = bancoDeDados.obterListas();
         this.mViewHolder.listLista = findViewById(R.id.list_compras);
         this.mViewHolder.buttonCriarLista = findViewById(R.id.button_criar_lista);
@@ -40,11 +42,47 @@ public class MainActivity extends Activity implements
                 nomeCampos,
                 this.mViewHolder.idViews, 0);
 
+        //Atribuindo eventos de click
         this.mViewHolder.listLista.setAdapter(this.mViewHolder.adaptador);
         this.mViewHolder.listLista.setOnItemClickListener(this);
         this.mViewHolder.buttonCriarLista.setOnClickListener(this);
 
-        //int[] idViews = new int[] {R.id.labelId, R.id.labelTitulo};
+    }
+
+    //Configuração no click no item da lista
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        this.mViewHolder.cursor.moveToPosition(position);
+        Intent intent = new Intent(MainActivity.this, EditarLista.class);
+        intent.putExtra("id",
+                this.mViewHolder.cursor.getInt(this.mViewHolder.cursor.getColumnIndexOrThrow("_id")));
+        startActivity(intent);
+        finish();
+    }
+
+    //Configuração do click no botão de criar lista
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.button_criar_lista) {
+            Intent startNewActivity = new Intent(this, CriarLista.class);
+            startActivity(startNewActivity);
+        }
+    }
+
+    //Criação do ViewHolder
+    public static class ViewHolder {
+        ListView listLista;
+        SimpleCursorAdapter adaptador;
+        int[] idViews;
+        Cursor cursor;
+        ImageButton buttonCriarLista;
+    }
+
+}
+
+/*--------------TRECHOS REMOVIDOS----------------*/
+
+//int[] idViews = new int[] {R.id.labelId, R.id.labelTitulo};
 
         /* SimpleCursorAdapter adaptador = new SimpleCursorAdapter(getBaseContext(),
                 R.layout.modelo_lista,
@@ -52,7 +90,7 @@ public class MainActivity extends Activity implements
                 nomeCampos,
                 this.mViewHolder.idViews,0); */
 
-        //ListView lista = (ListView) findViewById(R.id.listaDeCompras);
+//ListView lista = (ListView) findViewById(R.id.listaDeCompras);
 
 
 
@@ -68,41 +106,11 @@ public class MainActivity extends Activity implements
             }
         });
         */
-    }
 
-    /*
+        /*
     public void abrirTelaCriarNovaLista(View v) {
 
         Intent startNewActivity = new Intent(this, CriarLista.class);
         startActivity(startNewActivity);
     }
     */
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        this.mViewHolder.cursor.moveToPosition(position);
-        Intent intent = new Intent(MainActivity.this, EditarLista.class);
-        intent.putExtra("id",
-                this.mViewHolder.cursor.getInt(this.mViewHolder.cursor.getColumnIndexOrThrow("_id")));
-        startActivity(intent);
-        finish();
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.button_criar_lista) {
-            Intent startNewActivity = new Intent(this, CriarLista.class);
-            startActivity(startNewActivity);
-        }
-    }
-
-    public static class ViewHolder {
-        ListView listLista;
-        SimpleCursorAdapter adaptador;
-        int[] idViews;
-        Cursor cursor;
-        ImageButton buttonCriarLista;
-    }
-
-
-}

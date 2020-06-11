@@ -70,7 +70,7 @@
             android:layout_marginRight="2.5dp"
             android:layout_weight="1"
             android:background="@color/colorSave"
-            android:src="@drawable/round_save_white_48dp"/>
+            android:src="@drawable/round_save_white_48dp" />
 
         <ImageButton
             android:id="@+id/button_excluir"
