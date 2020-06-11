@@ -32,7 +32,7 @@
         android:layout_weight="0.92" />
 
     <ImageButton
-        android:id="@+id/BotaoCriarLista"
+        android:id="@+id/button_criar_lista"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_alignParentRight="true"
@@ -42,7 +42,6 @@
         android:background="@drawable/oval_ripple"
         android:contentDescription="description"
         android:elevation="4dp"
-        android:onClick="abrirTelaCriarNovaLista"
         android:src="@drawable/round_add_shopping_cart_white_36dp"
         android:tint="#FFEB3B" />
 
