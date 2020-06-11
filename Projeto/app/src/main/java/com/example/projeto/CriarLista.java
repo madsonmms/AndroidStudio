@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.example.projeto.R;
 import com.example.projeto.bancodedados.BancoDeDados;
 
-public class CriarLista extends Activity {
+public class CriarLista extends Activity implements View.OnClickListener {
 
     private ViewHolder mViewHolder = new ViewHolder();
 
@@ -22,18 +22,25 @@ public class CriarLista extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_criar_lista);
 
-        this.mViewHolder.editTitulo = findViewById(R.id.edit_campo_titulo);
-        this.mViewHolder.editConteudo = findViewById(R.id.edit_campo_titulo);
-        this.mViewHolder.button_criar_lista = findViewById(R.id.button_criar_lista);
-        this.mViewHolder.button_criar_lista = findViewById(R.id.button_cancelar);
+        this.mViewHolder.editTitulo = findViewById(R.id.edit_titulo);
+        this.mViewHolder.editConteudo = findViewById(R.id.edit_conteudo);
+        this.mViewHolder.buttonCriarLista = findViewById(R.id.button_criar_lista);
+        this.mViewHolder.buttonCancelar = findViewById(R.id.button_cancelar);
 
+        this.mViewHolder.buttonCriarLista.setOnClickListener(this);
+        this.mViewHolder.buttonCancelar.setOnClickListener(this);
+
+        this.mViewHolder.editTitulo.requestFocus();
     }
 
+    /*
     public void voltar (View v){
         Intent startNewActivity = new Intent(this, MainActivity.class);
         startActivity(startNewActivity);
     }
+    */
 
+    /*
     public void criarLista (View v){
         BancoDeDados bancoDeDados = new BancoDeDados(getBaseContext());
         //EditText titulo = (EditText) findViewById(R.id.campoTitulo);
@@ -55,10 +62,40 @@ public class CriarLista extends Activity {
 
     }
 
+     */
+
+    @Override
+    public void onClick(View v) {
+
+        Intent startNewActivity = new Intent(this, MainActivity.class);
+
+        switch (v.getId()) {
+            case R.id.button_cancelar:
+                startActivity(startNewActivity);
+                break;
+
+            case R.id.button_criar_lista:
+                BancoDeDados bancoDeDados = new BancoDeDados(getBaseContext());
+
+                boolean resultado = bancoDeDados.criarLista(
+                        this.mViewHolder.editTitulo.getText().toString(),
+                        this.mViewHolder.editConteudo.getText().toString()
+                );
+
+                if (resultado) {
+                    Toast.makeText(getApplicationContext(), "Lista Criada com Sucesso", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Erro ao Criar Lista", Toast.LENGTH_LONG).show();
+                }
+                startActivity(startNewActivity);
+                break;
+        }
+    }
+
     private static class ViewHolder {
         EditText editTitulo;
         EditText editConteudo;
-        ImageButton button_criar_lista;
-        ImageButton button_cancelar;
+        ImageButton buttonCriarLista;
+        ImageButton buttonCancelar;
     }
 }

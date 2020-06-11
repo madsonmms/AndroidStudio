@@ -4,32 +4,36 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="16dp"
+    android:orientation="vertical"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp"
     android:paddingTop="16dp"
-    android:orientation="vertical">
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    android:background="@drawable/bg">
 
 
     <TextView
-        android:id="@+id/titulo"
+        android:id="@+id/text_titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:gravity="center_horizontal"
-        android:text="Listas de Compras"
+        android:padding="20dp"
+        android:text="@string/listas_de_compras"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <ListView
-        android:id="@+id/listaDeCompras"
+        android:id="@+id/list_compras"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="528dp"
         android:layout_marginTop="20dp"
-        android:layout_weight="0.92" />
+        android:layout_weight="0.92"
+        android:background="@drawable/list_view_border"
+        android:dividerHeight="5dp" />
 
     <ImageButton
         android:id="@+id/button_criar_lista"
@@ -37,13 +41,12 @@
         android:layout_height="56dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="end"
         android:background="@drawable/oval_ripple"
         android:contentDescription="description"
         android:elevation="4dp"
-        android:src="@drawable/round_add_shopping_cart_white_36dp"
-        android:tint="#FFEB3B" />
+        android:src="@drawable/round_add_shopping_cart_white_36dp" />
 
 
 </LinearLayout>

@@ -26,19 +26,19 @@ public class MainActivity extends Activity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String[] nomeCampos = new String[] {"_id", "titulo"};
+        String[] nomeCampos = new String[]{"_id", "titulo"};
         BancoDeDados bancoDeDados = new BancoDeDados(getBaseContext());
 
         this.mViewHolder.cursor = bancoDeDados.obterListas();
-        this.mViewHolder.listLista = findViewById(R.id.listaDeCompras);
+        this.mViewHolder.listLista = findViewById(R.id.list_compras);
         this.mViewHolder.buttonCriarLista = findViewById(R.id.button_criar_lista);
-        this.mViewHolder.idViews = new int[] {
-                R.id.labelTitulo};
+        this.mViewHolder.idViews = new int[]{
+                R.id.label_id, R.id.label_titulo};
         this.mViewHolder.adaptador = new SimpleCursorAdapter(getBaseContext(),
                 R.layout.modelo_lista,
                 this.mViewHolder.cursor,
                 nomeCampos,
-                this.mViewHolder.idViews,0);
+                this.mViewHolder.idViews, 0);
 
         this.mViewHolder.listLista.setAdapter(this.mViewHolder.adaptador);
         this.mViewHolder.listLista.setOnItemClickListener(this);
