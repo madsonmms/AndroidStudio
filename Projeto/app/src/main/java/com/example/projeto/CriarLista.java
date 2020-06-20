@@ -74,36 +74,3 @@ public class CriarLista extends Activity implements View.OnClickListener {
         ImageButton buttonCancelar;
     }
 }
-
-/*--------------TRECHOS REMOVIDOS----------------*/
-
-    /*
-    public void voltar (View v){
-        Intent startNewActivity = new Intent(this, MainActivity.class);
-        startActivity(startNewActivity);
-    }
-    */
-
-    /*
-    public void criarLista (View v){
-        BancoDeDados bancoDeDados = new BancoDeDados(getBaseContext());
-        //EditText titulo = (EditText) findViewById(R.id.campoTitulo);
-        //EditText conteudo = (EditText) findViewById(R.id.campoConteudo);
-
-        boolean resultado = bancoDeDados.criarLista(
-                this.mViewHolder.editTitulo.getText().toString(),
-                this.mViewHolder.editConteudo.getText().toString()
-        );
-
-        if(resultado) {
-            Toast.makeText(getApplicationContext(), "Lista Criada com Sucesso", Toast.LENGTH_LONG).show();
-        }
-        else{
-            Toast.makeText(getApplicationContext(), "Erro ao Criar Lista", Toast.LENGTH_LONG).show();
-        }
-
-        voltar (v);
-
-    }
-
-     */

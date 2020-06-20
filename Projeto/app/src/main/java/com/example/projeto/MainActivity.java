@@ -79,38 +79,3 @@ public class MainActivity extends Activity implements
     }
 
 }
-
-/*--------------TRECHOS REMOVIDOS----------------*/
-
-//int[] idViews = new int[] {R.id.labelId, R.id.labelTitulo};
-
-        /* SimpleCursorAdapter adaptador = new SimpleCursorAdapter(getBaseContext(),
-                R.layout.modelo_lista,
-                cursor,
-                nomeCampos,
-                this.mViewHolder.idViews,0); */
-
-//ListView lista = (ListView) findViewById(R.id.listaDeCompras);
-
-
-
-        /*
-        this.mViewHolder.listLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                cursor.moveToPosition(position);
-                Intent intent = new Intent(MainActivity.this, EditarLista.class);
-                intent.putExtra("id", cursor.getInt(cursor.getColumnIndexOrThrow("_id")));
-                startActivity(intent);
-                finish();
-            }
-        });
-        */
-
-        /*
-    public void abrirTelaCriarNovaLista(View v) {
-
-        Intent startNewActivity = new Intent(this, CriarLista.class);
-        startActivity(startNewActivity);
-    }
-    */
