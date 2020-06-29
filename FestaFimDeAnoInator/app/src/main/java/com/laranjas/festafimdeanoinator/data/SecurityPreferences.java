@@ -16,11 +16,10 @@ public class SecurityPreferences {
     }
 
     public String getStorageString(String key) {
-        this.mSharedPreferences.getString(key, "");
-        return key;
+        return this.mSharedPreferences.getString(key, "");
     }
 
-    public void resetString(String key, String value) {
-        this.mSharedPreferences.edit().putString(key,value).apply();
+    public void resetString() {
+        this.mSharedPreferences.edit().putString("", "").apply();
     }
 }
